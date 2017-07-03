@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport"
+			  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="app">
+
+			<!--renderizar la propiedad title solo la primera vez-->
+			<p v-once="title">{{ title }}</p>
+			<p> {{ saludar() }}</p>
+
+			<!--renderizar html directamente desde la propiedad, NO RECOMENDABLE-->
+			<p v-html="htmlLink"></p>
+
+			<!--Getting Event Data from the Event Object-->
+			<div @mousemove="updateCoordinates">
+				Coordendas: {{ x }} / {{ y }}
+				<!--Event Modifiers-->
+				<span @mousemove.stop>Zona Muerta</span>
+			</div>
+
+			<!--Passing your own Arguments with Events-->
+			<button @click="increaseCounter(6, $event)">Incrementar desde instancia</button>
+
+			<!--Writing JavaScript Code in the Templates-->
+			<button @click="counter++">Incrementar desde plantilla</button>
+			<p>{{ counter > 50 ? 'Mayor' : 'Menor' }} {{ counter}}</p>
+
+			<!--Key Modifiers-->
+			<input type="text" @keyup.enter="lanzarMensaje('Me cago en tus muelas')" >
+			</div>
+
+		</div>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script src="app.js"></script>
+	</body>
+</html>
+
+

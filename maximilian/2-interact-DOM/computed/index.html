@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport"
+			  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="app">
+
+			<!--1: Aproximación con  2 métodos y data en la instancia-->
+
+			<!--<button @click="increase">Incrementar</button>-->
+			<!--<button @click="decrease">Decrementar</button>-->
+			<!--<p>Contador: {{ counter }}</p>-->
+			<!--<p>Resultado: {{ result }}</p>-->
+
+			<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+			<!--2: Aproximación con lógica en template y un solo método en la instancia,
+			 "result" ya no es una propiedad sino un método. Usar solo si el resultado
+			 de la función no tiene que recalcularse cada vez que se renderiza el DOM-->
+			<!--NO se cachean y SÏ se tienen que estar recalculando cada vez que se renderiza el DOM-->
+
+			<h1>Métodos</h1>
+			<button @click="counter++">Incrementar</button>
+			<button @click="counter--">Decrementar</button>
+			<p>Contador: {{ counter }}</p>
+			<p>Resultado: {{ result() }}</p>
+
+			<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+			<!--3: Computed Properties: -->
+			<!--Se llaman como propiedades, no como métodos, sin ()-->
+			<!--Se cachean y no se tienen que estar recalculando cada vez que se renderiza el DOM-->
+
+			<h1>Computed properties</h1>
+			<button @click="counter++">Incrementar</button>
+			<button @click="counter--">Decrementar</button>
+			<p>Contador: {{ counter }}</p>
+			<p>Resultado: {{ output }}</p>
+			<template v-if="!mostrar">
+				<div>
+					<p>Cómo la llevo</p>
+				</div>
+			</template>
+
+
+		</div>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script src="app.js"></script>
+	</body>
+</html>
+
+
